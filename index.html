@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* === 1. Ustawienia Globalne i Zmienne === */
         :root {
             --color-primary: #005A9C;
             --color-accent: #F09819;
@@ -22,138 +21,70 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { font-size: 16px; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--color-dark); line-height: 1.7; }
 
-        body {
-            font-family: var(--font-body);
-            color: var(--color-dark);
-            line-height: 1.7;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 0;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-            color: var(--color-primary);
-        }
-
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 0; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; color: var(--color-primary); margin-bottom: 1.5rem; }
         h1 { font-size: 2.8rem; }
         h2 { font-size: 2.2rem; text-align: center; }
         h3 { font-size: 1.5rem; }
         h4 { font-size: 1.1rem; color: var(--color-dark); font-weight: 700; }
         
-        p { margin-bottom: 1rem; }
+        .section-intro { text-align: center; max-width: 800px; margin: -1rem auto 3rem auto; color: #555; font-size: 1.1rem; }
 
-        .section-intro {
-            font-size: 1.1rem;
-            text-align: center;
-            max-width: 700px;
-            margin: -1rem auto 3rem auto;
-            color: #555;
-        }
-
-        /* Przyciski */
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 5px;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 1rem;
-            margin: 0.5rem;
-            border: none;
-        }
+        .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: 5px; font-family: var(--font-heading); font-weight: 600; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; }
         .btn-primary { background-color: var(--color-accent); color: var(--color-light); }
         .btn-primary:hover { background-color: #d9850c; transform: translateY(-2px); }
         .btn-secondary { background-color: transparent; color: var(--color-light); border: 2px solid var(--color-light); }
         .btn-secondary:hover { background-color: var(--color-light); color: var(--color-primary); }
 
-        /* Nagłówek */
-        .main-header {
-            background-color: var(--color-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
+        /* Header */
+        .main-header { background: var(--color-light); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
         .main-nav ul { display: flex; list-style: none; }
         .main-nav li { margin-left: 2rem; }
         .main-nav a { text-decoration: none; color: var(--color-dark); font-weight: 600; }
-        .main-nav a.cta-nav { background-color: var(--color-accent); color: var(--color-light); padding: 0.5rem 1rem; border-radius: 5px; }
+        .main-nav a.cta-nav { background: var(--color-accent); color: var(--color-light); padding: 0.5rem 1rem; border-radius: 5px; }
 
         /* Hero */
-        .hero-section {
-            background-color: var(--color-primary);
-            background-image: url('tlo2.png'); 
-            background-size: cover;
-            background-position: center;
-            color: var(--color-light);
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-section::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 90, 156, 0.75); z-index: -1;
-        }
+        .hero-section { background: var(--color-primary) url('tlo2.png') center/cover no-repeat; color: var(--color-light); text-align: center; padding: 8rem 0; position: relative; z-index: 1; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 90, 156, 0.75); z-index: -1; }
         .hero-section h1 { color: var(--color-light); text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
         .hero-section .subtitle { font-size: 1.3rem; margin-bottom: 2rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.8); }
 
+        /* Pillars (O nas) */
+        #o-nas { background: var(--color-gray); }
+        .pillars-wrapper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .pillar { background: var(--color-light); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+
         /* Usługi */
-        #uslugi { background-color: var(--color-light); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card {
-            background: var(--color-light); border: 1px solid #eee; border-radius: 8px; padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card { background: var(--color-light); border: 1px solid #eee; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 90, 156, 0.1); }
         .service-card ul { list-style: none; }
         .service-card li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; }
         .service-card li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
 
         /* Realizacje */
-        #realizacje { background-color: var(--color-gray); }
-        .case-study { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; background: var(--color-light); border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+        #realizacje { background: var(--color-gray); }
+        .case-study { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; background: var(--color-light); border-radius: 8px; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
         .case-study-image { background-size: cover; background-position: center; min-height: 250px; }
         .case-study-content { padding: 2rem; }
 
         /* Kontakt */
-        #kontakt { background-color: var(--color-gray); }
         .contact-wrapper { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; background: var(--color-light); padding: 3rem; border-radius: 8px; }
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; }
-        .contact-details h3 { margin-bottom: 1rem; }
         .contact-details a { color: var(--color-primary); text-decoration: none; font-weight: 600; }
 
-        /* Stopka */
+        /* Footer */
         .main-footer { background: var(--color-dark); color: #aaa; text-align: center; padding: 2rem 0; }
         .main-footer a { color: var(--color-light); text-decoration: none; }
 
-        @media (max-width: 768px) {
-            .contact-wrapper, .case-study { grid-template-columns: 1fr; }
-            .main-nav { display: none; }
-        }
+        @media (max-width: 992px) { .services-grid, .pillars-wrapper { grid-template-columns: 1fr; } .case-study, .contact-wrapper { grid-template-columns: 1fr; } .main-nav { display: none; } }
     </style>
 </head>
 <body>
@@ -184,65 +115,125 @@
             </div>
         </section>
 
-        <section id="uslugi" class="container">
-            <h2>Kompleksowe usługi w zakresie Inżynierii Ruchu</h2>
-            <p class="section-intro">Zapewniamy pełne wsparcie na każdym etapie procesu inwestycyjnego.</p>
-            <div class="services-grid">
-                <article class="service-card">
-                    <h4>Analizy i Pomiary Ruchu</h4>
-                    <ul>
-                        <li>Pomiary natężenia ruchu (wideo, manualne)</li>
-                        <li>Analizy przepustowości (HCM/HBS)</li>
-                        <li>Prognozy ruchu</li>
-                    </ul>
-                </article>
-                <article class="service-card">
-                    <h4>Symulacje Mikroskopowe (Vissim)</h4>
-                    <ul>
-                        <li>Modelowanie złożonych układów drogowych</li>
-                        <li>Testowanie wariantów (ronda vs. sygnalizacja)</li>
-                        <li>Wizualizacje 3D dla prezentacji</li>
-                    </ul>
-                </article>
-                <article class="service-card">
-                    <h4>Projekty Stałej Organizacji (SOR)</h4>
-                    <ul>
-                        <li>Projekty dla nowych dróg i przebudów</li>
-                        <li>Oznakowanie pionowe i poziome</li>
-                        <li>Projekty sygnalizacji świetlnej</li>
-                    </ul>
-                </article>
+        <section id="o-nas">
+            <div class="container">
+                <h2>Partner godny zaufania w projektach drogowych</h2>
+                <p class="section-intro">Jesteśmy zespołem inżynierów ruchu, dla których priorytetem jest precyzja danych i bezpieczeństwo użytkowników dróg.</p>
+                <div class="pillars-wrapper">
+                    <div class="pillar">
+                        <h3>Kompetencje</h3>
+                        <p>Posiadamy niezbędną wiedzę do projektowania i nadzoru, działając zgodnie z aktualnymi przepisami.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Terminowość</h3>
+                        <p>Rozumiemy harmonogramy inwestycji. Dostarczamy projekty zawsze na czas.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Technologia</h3>
+                        <p>Pracujemy na zaawansowanym oprogramowaniu (PTV Vissim), gwarantując najwyższą jakość analiz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="uslugi">
+            <div class="container">
+                <h2>Nasze Usługi</h2>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <h4>Analizy i Pomiary Ruchu</h4>
+                        <ul>
+                            <li>Pomiary wideo i manualne</li>
+                            <li>Analizy przepustowości (HCM/HBS)</li>
+                            <li>Prognozy ruchu</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <h4>Symulacje (Vissim)</h4>
+                        <ul>
+                            <li>Modelowanie mikroskopowe</li>
+                            <li>Testowanie wariantów (ronda/sygnalizacja)</li>
+                            <li>Wizualizacje 3D</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <h4>Projekty SOR</h4>
+                        <ul>
+                            <li>Stała Organizacja Ruchu</li>
+                            <li>Oznakowanie pionowe i poziome</li>
+                            <li>Zatwierdzenia urzędowe</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <h4>Projekty TOR</h4>
+                        <ul>
+                            <li>Tymczasowa Organizacja Ruchu</li>
+                            <li>Zabezpieczenie robót drogowych</li>
+                            <li>Minimalizacja utrudnień</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <h4>Sygnalizacja Świetlna</h4>
+                        <ul>
+                            <li>Programy akomodacyjne</li>
+                            <li>Koordynacja "zielona fala"</li>
+                            <li>Optymalizacja cykli</li>
+                        </ul>
+                    </article>
+                    <article class="service-card">
+                        <h4>Doradztwo</h4>
+                        <ul>
+                            <li>Analizy wpływu inwestycji</li>
+                            <li>Ekspertyzy inżynierskie</li>
+                            <li>Wsparcie administracyjne</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="realizacje">
+            <div class="container">
+                <h2>Nasze Projekty w Praktyce</h2>
+                <div class="case-study">
+                    <div class="case-study-image" style="background-image: url('S106_Z2.png');"></div>
+                    <div class="case-study-content">
+                        <h4>Modernizacja skrzyżowania - Analiza Vissim</h4>
+                        <p><strong>Wyzwanie:</strong> Optymalizacja strat czasu w godzinach szczytu.</p>
+                        <p><strong>Rozwiązanie:</strong> Symulacja 3 wariantów i wdrożenie programu akomodacyjnego.</p>
+                        <p><strong>Wynik:</strong> Skrócenie czasu przejazdu o 17%.</p>
+                    </div>
+                </div>
+                <div class="case-study">
+                    <div class="case-study-image" style="background-image: url('projektx.png');"></div>
+                    <div class="case-study-content">
+                        <h4>Projekt SOR - Infrastruktura Rowerowa</h4>
+                        <p><strong>Wyzwanie:</strong> Integracja przejazdów rowerowych z sygnalizacją.</p>
+                        <p><strong>Rozwiązanie:</strong> Kompleksowy Projekt Stałej Organizacji Ruchu.</p>
+                        <p><strong>Wynik:</strong> Bezpieczna i płynna komunikacja wielomodalna.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="kontakt">
             <div class="container">
-                <h2>Porozmawiajmy o Twoim Projekcie</h2>
+                <h2>Wycena i Kontakt</h2>
                 <div class="contact-wrapper">
                     <form action="https://formsubmit.co/kdgtraffic@gmail.com" method="POST">
-                        <div class="form-group">
-                            <label for="name">Imię i Nazwisko</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Adres e-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Opis projektu</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
+                        <div class="form-group"><label>Imię i Nazwisko</label><input type="text" name="name" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+                        <div class="form-group"><label>Opis projektu</label><textarea name="message" rows="5" required></textarea></div>
                         <div class="form-group">
                             <label style="font-weight: 400; font-size: 0.85rem; display: flex; align-items: flex-start;">
                                 <input type="checkbox" name="rodo" required style="width: auto; margin-right: 10px; margin-top: 5px;"> 
-                                Wyrażam zgodę na przetwarzanie moich danych osobowych przez zespół KDG Traffic w celu udzielenia odpowiedzi na zapytanie. Szczegóły w <a href="polityka-prywatnosci.html" style="margin-left: 4px;">Polityce Prywatności</a>.
+                                Zgadzam się na przetwarzanie danych przez zespół KDG Traffic w celu odpowiedzi na zapytanie. <a href="polityka-prywatnosci.html" style="margin-left: 5px;">Polityka Prywatności</a>.
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin: 0;">Wyślij zapytanie</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Wyślij zapytanie</button>
                     </form>
-                    
                     <aside class="contact-details">
-                        <h3>Kontakt</h3>
+                        <h3>Dane kontaktowe</h3>
                         <p><strong>Zespół KDG Traffic</strong></p>
                         <p>
                             <a href="tel:+48793351388">+48 793 351 388</a><br>
@@ -258,10 +249,7 @@
     </main>
 
     <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 KDG Traffic. Wszelkie prawa zastrzeżone.</p>
-            <p><a href="polityka-prywatnosci.html">Polityka Prywatności</a></p>
-        </div>
+        <p>&copy; 2026 KDG Traffic. Wszelkie prawa zastrzeżone. | <a href="polityka-prywatnosci.html">Polityka Prywatności</a></p>
     </footer>
 
 </body>
